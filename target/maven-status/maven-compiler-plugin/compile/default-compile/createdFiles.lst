@@ -1,0 +1,7 @@
+ahillary\investing\project\futures\Test.class
+ahillary\investing\project\StartApplication.class
+ahillary\investing\project\dto\Futures.class
+ahillary\investing\project\futures\FuturesService.class
+ahillary\investing\project\web\FuturesRest.class
+ahillary\investing\project\futures\InvestingCallable.class
+ahillary\investing\project\configuration\WebClientConf.class
