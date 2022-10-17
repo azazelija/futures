@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "f88995f7-87f4-4d22-9b2a-08f1a43c0272",
+		"name": "Ahillary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16079956"
+	},
+	"item": [
+		{
+			"name": "nq_100",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/futures/nq_100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"futures",
+						"nq_100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "spx_500",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/futures/spx_500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"futures",
+						"spx_500"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sml_cap",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/futures/sml_cap",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"futures",
+						"sml_cap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/v1/futures/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"v1",
+						"futures",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

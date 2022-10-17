@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  app_db:
+    build: .
+    container_name: futures
+    image: futures-image
+    ports:
+      - ${APP_PORT}:${APP_PORT}
