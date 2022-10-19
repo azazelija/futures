@@ -2,6 +2,7 @@ package investing.project.futures;
 
 import investing.project.dto.FuturesDto;
 import investing.project.dto.FuturesEnum;
+import investing.project.exc.FutureException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ public class FuturesService {
     }
 
     public FuturesDto getAllInvestingIndexes() {
+        log.info("Получение данных всех фьючерсов");
         //Асинхронный вызов на investing
         Future<FuturesDto> futureTask = executorService.submit(new InvestingAllCallable(FuturesEnum.ALL));
         try {
@@ -33,12 +35,13 @@ public class FuturesService {
             return value;
         } catch (Exception e) {
             log.error("Ошибка получения данных фьючерсов ", e);
-            log.info("Попытка получить данные повторно");
-            return null;
+//            log.info("Попытка получить данные повторно");
+            throw new FutureException(e);
         }
     }
 
     public String getInvestingIndex(FuturesEnum futuresEnum) {
+        log.info("Получение данных фьючерса {}", futuresEnum.name());
         //Асинхронный вызов на investing
         Future<String> futureTask = executorService.submit(new InvestingCallable(futuresEnum));
         try {
@@ -47,8 +50,8 @@ public class FuturesService {
             return value;
         } catch (Exception e) {
             log.error("Ошибка получения данных фьючерса {} ", futuresEnum.name(), e);
-            log.info("Попытка получить данные повторно");
-            return null;
+//            log.info("Попытка получить данные повторно");
+            throw new FutureException(e);
         }
     }
 }

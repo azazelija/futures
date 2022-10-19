@@ -9,7 +9,7 @@ server:
 
 logging:
   level:
-    ROOT: INFO
+    ROOT: DEBUG
     liquibase: INFO
     org.springframework:
       boot: INFO
