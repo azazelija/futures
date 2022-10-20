@@ -5,4 +5,4 @@ services:
     container_name: futures
     image: futures-image
     ports:
-      - ${APP_PORT}:${APP_PORT}
+      - 9090:9090

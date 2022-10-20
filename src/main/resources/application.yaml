@@ -3,14 +3,19 @@ spring:
     name: ahillary-invest
 
 server:
-  port: 9090
+  port: ${APP_PORT:9090}
   servlet:
     context-path: /v1
 
+chrome:
+  driver: ${DRIVER:src/main/resources/chromedriver_win32/chromedriver.exe}
+
 logging:
   level:
-    ROOT: DEBUG
+    ROOT: INFO
     liquibase: INFO
     org.springframework:
       boot: INFO
       web: INFO
+  file:
+    path: /logs
