@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ahillary-invest
+
+server:
+  port: 9090
+  servlet:
+    context-path: /v1
+
+logging:
+  level:
+    ROOT: DEBUG
+    liquibase: INFO
+    org.springframework:
+      boot: INFO
+      web: INFO

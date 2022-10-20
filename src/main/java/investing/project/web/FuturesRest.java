@@ -5,10 +5,7 @@ import investing.project.futures.FuturesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/futures")
@@ -29,6 +26,13 @@ public class FuturesRest {
         FuturesDto futuresDto = futuresService.getAllInvestingIndexes();
 
         return new ResponseEntity<>(futuresDto, HttpStatus.OK);
+    }
+
+    @PutMapping("/")
+    public ResponseEntity putFutures(@RequestBody FuturesDto futuresDto) {
+        System.out.println(futuresDto);
+
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
 }

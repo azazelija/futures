@@ -18,6 +18,12 @@ public class FuturesService {
 
     ExecutorService executorService = Executors.newCachedThreadPool();
 
+//    public String putFutureValue(String futureName) {
+//        FuturesEnum futuresEnum = FuturesEnum.valueOf(FuturesEnum.class, futureName.toUpperCase());
+//        FuturesDto futuresDto = new FuturesDto();
+//        futuresDto.setNq_100();
+//    }
+
     public String getInvestingIndex(String futureName) {
         FuturesEnum futuresEnum = FuturesEnum.valueOf(FuturesEnum.class, futureName.toUpperCase());
         String value = getInvestingIndex(futuresEnum);
