@@ -1,16 +1,17 @@
 package investing.project.service;
 
 import investing.project.dto.ShortFuturesDto;
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 @Service
@@ -21,13 +22,21 @@ public class SeleniumService {
 
     private WebDriver driver;
 
+    private ChromeOptions options;
+
     @Value("${chrome.driver}")
     private String driverPath;
 
     @PostConstruct
     public void start() {
         System.setProperty("webdriver.chrome.driver", driverPath);
-        driver = new ChromeDriver();
+
+        options = new ChromeOptions();
+        options.addArguments("--no-sandbox"); // Bypass OS security model
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+
+        driver = new ChromeDriver(options);
         driver.get(URL);
     }
 
@@ -55,7 +64,9 @@ public class SeleniumService {
     public void restart() {
         log.info("Перезапуск Chrome браузера");
         driver.quit();
-        driver = new ChromeDriver();
+
+        driver = new ChromeDriver(options);
+
         log.info("Попытка входа на страницу investing");
         driver.get(URL);
     }

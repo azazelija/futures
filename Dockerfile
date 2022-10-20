@@ -1,4 +1,4 @@
-FROM markhobson/maven-chrome:jdk-16
+FROM markhobson/maven-chrome:jdk-8
 
 #RUN apt-get update; apt-get clean
 #
